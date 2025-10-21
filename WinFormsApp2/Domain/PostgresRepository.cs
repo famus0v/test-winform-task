@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WinFormsApp2.Domain;
 using WinFormsApp2.Entity;
 
-namespace WinFormsApp2.Service;
+namespace WinFormsApp2.Domain;
 
 public class PostgresRepository : IDisposable
 {
@@ -18,20 +17,15 @@ public class PostgresRepository : IDisposable
             .OrderBy(p => p.Id)
             .ToListAsync();
 
-    public async Task<Person> GetById(int id) =>
-        await _context.People
-            .FirstOrDefaultAsync(p => p.Id == id);
-    
-
     public async Task Add(Person person)
     {
         await _context.People.AddAsync(person);
         await _context.SaveChangesAsync();
     }
 
-    public async Task Update(Person person)
+    public async Task Update(int id, Person person)
     {
-        var existingPerson = await _context.People.FindAsync(person.Id);
+        var existingPerson = await _context.People.FindAsync(id);
         if (existingPerson == null)
             return;
 

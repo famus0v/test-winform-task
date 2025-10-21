@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace WinFormsApp2.Migrations
+namespace WinFormsApp2.Domain.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration
@@ -19,8 +19,7 @@ namespace WinFormsApp2.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    age = table.Column<int>(type: "integer", nullable: false),
-                    birthdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    birthdate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

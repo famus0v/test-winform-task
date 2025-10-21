@@ -55,11 +55,12 @@
             // TextBoxes
             txtId = new TextBox { Location = new Point(100, 267), Width = 100, ReadOnly = true, Text = "0" };
             txtName = new TextBox { Location = new Point(100, 297), Width = 180 };
-            txtAge = new TextBox { Location = new Point(100, 327), Width = 100 };
+            txtAge = new TextBox { Location = new Point(100, 327), Width = 100, ReadOnly = true };
             txtAge.KeyPress += txtAge_KeyPress;
 
             // DateTimePicker
             dtpBirthdate = new DateTimePicker { Location = new Point(100, 357), Width = 180 };
+            dtpBirthdate.ValueChanged += dtpBirthdate_ValueChanged;
 
             // Buttons
             btnSave = new Button { Text = "Добавить", Location = new Point(350, 295), Width = 100 };

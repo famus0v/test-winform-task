@@ -9,10 +9,10 @@ using WinFormsApp2.Domain;
 
 #nullable disable
 
-namespace WinFormsApp2.Migrations
+namespace WinFormsApp2.Domain.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251021063528_Init")]
+    [Migration("20251021081613_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace WinFormsApp2.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("WinFormsApp2.Person", b =>
+            modelBuilder.Entity("WinFormsApp2.Entity.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,12 +34,8 @@ namespace WinFormsApp2.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Age")
-                        .HasColumnType("integer")
-                        .HasColumnName("age");
-
                     b.Property<DateTime>("Birthdate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("birthdate");
 
                     b.Property<string>("Name")
