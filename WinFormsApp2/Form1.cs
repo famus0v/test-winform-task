@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.ComponentModel;
 
 namespace WinFormsApp2
@@ -26,8 +26,8 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}",
-                    "Ошибка подключения",
+                MessageBox.Show($"РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…: {ex.Message}",
+                    "РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
                 return;
@@ -46,7 +46,7 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}", "Ошибка",
+                MessageBox.Show($"РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё РґР°РЅРЅС‹С…: {ex.Message}", "РћС€РёР±РєР°",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -72,7 +72,7 @@ namespace WinFormsApp2
             {
                 Name = "Name",
                 DataPropertyName = "Name",
-                HeaderText = "Имя",
+                HeaderText = "РРјСЏ",
                 Width = 150
             });
 
@@ -80,7 +80,7 @@ namespace WinFormsApp2
             {
                 Name = "Age",
                 DataPropertyName = "Age",
-                HeaderText = "Возраст",
+                HeaderText = "Р’РѕР·СЂР°СЃС‚",
                 Width = 70
             });
 
@@ -88,7 +88,7 @@ namespace WinFormsApp2
             {
                 Name = "Birthdate",
                 DataPropertyName = "Birthdate",
-                HeaderText = "Дата рождения",
+                HeaderText = "Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ",
                 Width = 120
             });
         }
@@ -122,14 +122,14 @@ namespace WinFormsApp2
                 await _repository.Add(person);
                 await RefreshData();
                 ClearForm();
-                MessageBox.Show("Запись успешно добавлена!", "Успех",
+                MessageBox.Show("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°!", "РЈСЃРїРµС…",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataGridView.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
+                MessageBox.Show($"РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё: {ex.Message}", "РћС€РёР±РєР°",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -148,14 +148,14 @@ namespace WinFormsApp2
                 await _repository.Update(_currentPerson);
                 RefreshData();
                 ClearForm();
-                MessageBox.Show("Запись успешно обновлена!", "Успех",
+                MessageBox.Show("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅР°!", "РЈСЃРїРµС…",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataGridView.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при обновлении: {ex.Message}", "Ошибка",
+                MessageBox.Show($"РћС€РёР±РєР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё: {ex.Message}", "РћС€РёР±РєР°",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -165,8 +165,8 @@ namespace WinFormsApp2
             if (_currentPerson == null)
                 return;
 
-            var result = MessageBox.Show("Вы уверены, что хотите удалить эту запись?",
-                "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЌС‚Сѓ Р·Р°РїРёСЃСЊ?",
+                "РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ СѓРґР°Р»РµРЅРёСЏ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result != DialogResult.Yes)
                 return;
@@ -176,12 +176,12 @@ namespace WinFormsApp2
                 await _repository.Delete(_currentPerson.Id);
                 await RefreshData();
                 ClearForm();
-                MessageBox.Show("Запись успешно удалена!", "Успех",
+                MessageBox.Show("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°!", "РЈСЃРїРµС…",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка",
+                MessageBox.Show($"РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё: {ex.Message}", "РћС€РёР±РєР°",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -223,7 +223,7 @@ namespace WinFormsApp2
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("Пожалуйста, введите имя", "Ошибка валидации",
+                MessageBox.Show("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РёРјСЏ", "РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
                 return false;
@@ -231,7 +231,7 @@ namespace WinFormsApp2
 
             if (!int.TryParse(txtAge.Text, out int age) || age < 0 || age > 150)
             {
-                MessageBox.Show("Пожалуйста, введите корректный возраст (0-100)", "Ошибка валидации",
+                MessageBox.Show("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРѕР·СЂР°СЃС‚ (0-100)", "РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAge.Focus();
                 return false;
@@ -239,7 +239,7 @@ namespace WinFormsApp2
 
             if (dtpBirthdate.Value > DateTime.Now)
             {
-                MessageBox.Show("Дата рождения не может быть в будущем", "Ошибка валидации",
+                MessageBox.Show("Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІ Р±СѓРґСѓС‰РµРј", "РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpBirthdate.Focus();
                 return false;
