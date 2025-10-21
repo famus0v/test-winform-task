@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WinFormsApp2.Entity;
 
-namespace WinFormsApp2;
+namespace WinFormsApp2.Domain;
 
 public class AppDbContext : DbContext
 {

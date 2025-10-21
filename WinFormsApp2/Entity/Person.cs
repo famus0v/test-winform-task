@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsApp2
+namespace WinFormsApp2.Entity
 {
     public class Person
     {

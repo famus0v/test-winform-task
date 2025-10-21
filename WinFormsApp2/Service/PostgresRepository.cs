@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WinFormsApp2.Domain;
+using WinFormsApp2.Entity;
 
-namespace WinFormsApp2;
+namespace WinFormsApp2.Service;
 
 public class PostgresRepository : IDisposable
 {

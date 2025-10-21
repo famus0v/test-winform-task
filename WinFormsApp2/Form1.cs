@@ -1,5 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using WinFormsApp2.Domain;
+using WinFormsApp2.Entity;
+using WinFormsApp2.Service;
 
 namespace WinFormsApp2
 {
