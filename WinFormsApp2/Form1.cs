@@ -13,7 +13,12 @@ namespace WinFormsApp2
         {
             InitializeComponent();
             InitializeDatabase();
-            InitializeData().Wait();
+        }
+
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await InitializeData();
         }
 
         private void InitializeDatabase()
